@@ -35,3 +35,50 @@
  * You have woken up inside of some sort of laboratory. How you got here, you can't remember. There is a
  * sharp pain in your left shoulder. You hear whispering from across the room. You yell out in pain and they
  * come toward you. 
+ *
+ *
+ * 	[] The Escape
+ *
+ * 	[] Into the mountains
+ *
+ * 	[] Danger approaches
+ *
+ * 	[] The plot thickens...
+ *
+ * 	[] Deeper into the mountain lies the truth
+ *
+ * 	[] Betrayal!
+ *
+ * 	[] Back to the lab?
+ *
+ * 	[] It all makes sense now
+ *
+ * 	[] Self Destruct!
+ *
+ * 	[] Final Countdown
+ *
+ * 	[] Back to the mountains and beyond
+ *
+ * 	[] The lab was only the beginning!
+ *
+ * 	[] Gateway into another realm
+ *
+ * 	[] Your true power awakens
+ *
+ * 	[] Allies
+ *
+ * 	[] Find the killer
+ *
+ * 	[] Main Headquarters
+ *
+ * 	[] Deeper and deeper, more mysteries
+ *
+ * 	[] Solve the puzzles
+ *
+ * 	[] Find the key
+ *
+ * 	[] Now you know what you must do...
+ *
+ * 	[] Final Stretch
+ *
+ * 	[] The end
