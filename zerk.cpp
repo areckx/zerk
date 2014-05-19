@@ -28,3 +28,10 @@
 //
 // 	[] Allow the player to interact with friendly characters, some of whome
 // 	   may aid the player on his/her journey
+//
+
+/*					   :: Basic Story Line ::
+ *
+ * You have woken up inside of some sort of laboratory. How you got here, you can't remember. There is a
+ * sharp pain in your left shoulder. You hear whispering from across the room. You yell out in pain and they
+ * come toward you. 
