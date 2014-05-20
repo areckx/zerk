@@ -1,4 +1,4 @@
-// File: dailogue.cpp
+// File: dialogue.cpp
 // Description: [Interacting within Zerk)
 // Last Modified: 2014-05-16Fri 10:43 PDT
 //
@@ -37,26 +37,26 @@ class Dialogue {
 		}
 
 		Dialogue(std::string description, std::vector<std::string> choices) {
-			this -> description = description;
-			this -> choices = choices;
+			this->description = description;
+			this->choices = choices;
 		}
 
 		// Run the dialogue
-		int activate() {
+		unsigned int activate() {
 			// Output the information
 			std::cout << description << std::endl;
 
 			// Output and number the choices
-			for(int i = 0; i < this -> choices.size(); ++i) {
+			for(unsigned int i = 0; i < this->choices.size(); ++i) {
 
-				std::cout << i + 1 << ": " << this -> choices[1] <<
+				std::cout << i + 1 << ": " << this->choices[i] <<
 					std::endl;
 			}
-			int userInput = -1;
+			unsigned int userInput = -1;
 
 			// Repeatedly read input from stdin until a valid
 			// option is chosen
-			while(True) {
+			while(true) {
 				std::cin >> userInput;
 
 				// 'Valid' means within the range of numbers output
