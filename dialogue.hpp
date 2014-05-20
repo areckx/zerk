@@ -14,7 +14,8 @@
 // If they do not pick a valid one then the dialogue loops until they do.
 //
 // This class will form the basis of almost all game-player interaction.
-class Dialogue {
+class Dialogue 
+{
 	private:
 		// Initial piece of information that the dialouge displays
 		std::string description;
@@ -33,21 +34,25 @@ class Dialogue {
 
 	public:
 
-		Dialogue() {
+		Dialogue() 
+		{
 		}
 
-		Dialogue(std::string description, std::vector<std::string> choices) {
+		Dialogue(std::string description, std::vector<std::string> choices) 
+		{
 			this->description = description;
 			this->choices = choices;
 		}
 
 		// Run the dialogue
-		unsigned int activate() {
+		unsigned int activate() 
+		{
 			// Output the information
 			std::cout << description << std::endl;
 
 			// Output and number the choices
-			for(unsigned int i = 0; i < this->choices.size(); ++i) {
+			for(unsigned int i = 0; i < this->choices.size(); ++i) 
+			{
 
 				std::cout << i + 1 << ": " << this->choices[i] <<
 					std::endl;
@@ -56,11 +61,13 @@ class Dialogue {
 
 			// Repeatedly read input from stdin until a valid
 			// option is chosen
-			while(true) {
+			while(true) 
+			{
 				std::cin >> userInput;
 
 				// 'Valid' means within the range of numbers output
-				if(userInput >= 0 && userInput <= choices.size()) {
+				if(userInput >= 0 && userInput <= choices.size()) 
+				{
 					return userInput;
 				}
 

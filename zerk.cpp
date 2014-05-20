@@ -43,14 +43,16 @@
  * 	[] The Escape
  *
  */
-int main() {
+int main() 
+{
 	int health = 100;
 	int stamina = 100;
 	int hunger = 0;
 	int menu = 0;
 	int items = [];
 
-	while (health > 0) {
+	while (health > 0) 
+	{
 
 		std::cout << "\t\tWelcome to Zerk!" << std:endl <<
 			std::endl; << "\t\t--==Main Menu==--" << std::endl <<
@@ -59,15 +61,18 @@ int main() {
 
 		std::cin >> menu;
 
-		if (menu == 1) {
+		if (menu == 1) 
+		{
 
 		}
 
-		if (menu == 2) {
+		if (menu == 2) 
+		{
 
 		}
 
-		if (menu == 3) { 
+		if (menu == 3) 
+		{ 
 			std::exit();
 		
 		}

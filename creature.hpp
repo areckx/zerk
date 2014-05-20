@@ -5,6 +5,7 @@
 #ifndef CREATURE_HPP
 #define CREATURE_HPP
 
+#include "inventory.hpp"
 #include <string>
 #include <iostream>
 
@@ -24,13 +25,25 @@
 //
 // We also need a class system (warrior, mage, etc) (className)
 
-class Creature {
+class Creature 
+{
 
 	public: 
 
-		Creature() {
 
-		}
+
+
+
+
+		// Items that the creature posesses
+		Inventory inventory;
+
+		// Currently equipped weapon. Used as a pointer to an atlas entry,
+		// but not necessary. nullptr denotes that no weapon is equipped
+		Weapon* equippedWeapon;
+
+		// Armor currently equipped in each slot
+		Armor* equippedArmor[Armor::Slot::N];
 
 		// Name of the creature and its class if it has one
 		// Class may be Fighter, Rogue, Mage, etc
@@ -46,6 +59,8 @@ class Creature {
 		int vit;	// Vitality determines  maximum HP (1~100)
 		int dex;	// Dexterity determins speed in battle (1~100)
 		double hitRate;	// Modifier to hit change (1~150)
+
+
 		// Current level of the creature.
 		// Determines the amount of exp that it gives to the
 		// victor when defeated (see Battle class for more)
@@ -60,7 +75,8 @@ class Creature {
 
 		// Calculate the exp required to reach a certain level
 		// *in total*
-		unsigned int expToLevel(unsigned int level) {
+		unsigned int expToLevel(unsigned int level) 
+		{
 
 			// Exp tp level x = 128*x^2
 			return 128 * level * level;
@@ -68,7 +84,11 @@ class Creature {
 
 		Creature(std::string name, int hp, int str, int vit,
 				int dex, double hitRate, unsigned int level = 1,
-				std::string className = "") {
+				std::string className = "") 
+		{
+
+		// We also need to make sure that the creature is not equipped with
+		// anything when they are first created 
 
 			this->name = name;
 			this->hp = hp;
@@ -77,19 +97,55 @@ class Creature {
 			this->dex = dex;
 			this->hitRate = hitRate;
 			this->className = className;
+			this->equippedArmor[Armor::Slot::HEAD] = nullptr;
+			this->equippedArmor[Armor::Slot::TORSO] = nullptr;
+			this->equippedArmor[Armor::Slot::LEGS] = nullptr;
+			this->equippedWeapon = nullptr;
 			this->level = level;
 			this->exp = 0;
+		}
+		
+		Creature()
+		{ 
+			this->equippedArmor[Armor::Slot::HEAD] = nullptr;
+			this->equippedArmor[Armor::Slot::TORSO] = nullptr;
+			this->equippedArmor[Armor::Slot::LEGS] = nullptr;
+			this->equippedWeapon = nullptr;
+			this->level = 1;
+			this->exp = 0;
+		}
+	
+
+		// Equip a weapon by setting the equipped weapon pointer. Currently
+		// a pointless function(simple enough to be rewritten each time)
+		// but handy if dual-wielding is ever added, or shields, etc.
+		void equipWeapon(Weapon* weapon)
+		{
+			this->equippedWeapon = weapon;
+
+			return;
+		}
+
+		// Equip the armor into its correct slot. A slightly more useful
+		// function!
+		void equipArmor(Armor* armor)
+		{
+			this->equippedArmor[(int)armor->slot] = armor;
+
+			return;
 		}
 
 
 		// Level the creature to the next level if it has 
 		// enough exp to do so, returning true if it could
 		// level up and false otherwise.
-		bool levelUp() {
+		bool levelUp() 
+		{
 
 			// We want the exp to the next level,
 			// not the current level
-			if(this->exp >= expToLevel(this->level + 1)) {
+			if(this->exp >= expToLevel(this->level + 1)) 
+			{
 
 					// Advance to the next level
 					++level;
@@ -107,21 +163,24 @@ class Creature {
 					unsigned int dexBoost = 0;
 
 					// Give a large boost to hp every third level
-					if(level % 3 == 0) {
+					if(level % 3 == 0) 
+					{
 
 						// Randomly increase hp, but always give
 						// a chunk proportional to the creature's
 						// vit
 						hpBoost = 10 + (rand() % 4) + this->vit / 4;
 					}
-					else {
+					else 
+					{
 						// Just increase hp by a small amount
 						hpBoost = this->vit / 4;
 					}
 
 					// If the creature is a Fighter, then favor str and vit
 					// boosts over dex, but increase dex 50% of the time too
-					if(this->className == "Fighter") {
+					if(this->className == "Fighter") 
+					{
 
 						strBoost = 1;
 						vitBoost = 1;
@@ -131,7 +190,8 @@ class Creature {
 					// Same as Fighter but favor dex and vit instead. 
 					// Rogues favor vit too in order to keep them roughly
 					// the same capability
-					if(this->className == "Rogue") {
+					if(this->className == "Rogue") 
+					{
 
 						vitBoost = 1;
 						dexBoost = 1;

@@ -21,7 +21,8 @@
 // Generally returning an object from a function is not a good idea
 // due to large memory footprints(returning is slow) but we're only 
 // going to be calling this function once.
-Creature dialogue_newchar() {
+Creature dialogue_newchar() 
+{
 	
 	// Ask for name and class 
 	// Name does not use a dialogue since dialogues only
@@ -42,7 +43,8 @@ Creature dialogue_newchar() {
 		 * int result = Dialogue("Choose your class", choices).activate();
 		 */
 
-	switch(result) {
+	switch(result) 
+	{
 		// Fighter class favors hp and str
 		case 1:
 			return Creature(name, 35, 20, 10, 5, 10.0, 1,
@@ -64,7 +66,8 @@ Creature dialogue_newchar() {
 
 }
 
-int main(void) {
+int main(void) 
+{
 	Creature player;
 
 	// Seed the random number generator with the system time, so the
@@ -76,17 +79,20 @@ int main(void) {
 			"Welcome!",
 			{"New Game"}).activate();
 
-	switch(result) {
+	switch(result) 
+	{
 
 		case 1: player = dialogue_newchar(); break;
 		default: return 0; break;
 	}
 
-	while(1) {
+	while(1) 
+	{
 
 		// If the player has died then inform them as such and
 		// close the program.
-		if(player.hp <= 0) {
+		if(player.hp <= 0) 
+		{
 			std::cout << "\t----YOU DIED----\n	Game Over\n";
 			return 0;
 		}

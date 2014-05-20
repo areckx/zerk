@@ -14,10 +14,12 @@
 // Properties of a weapon :
 // 	* damage 
 // 	* hitRate
-class Weapon : public Item {
+class Weapon : public Item 
+{
 
 	public:
-		Weapon() {
+		Weapon() 
+		{
 
 		}
 
@@ -31,7 +33,8 @@ class Weapon : public Item {
 
 		// Pass inherited qualities to the normal line construction
 		Weapon (std::string name, std::string description,
-			int damage, double hitRate) : Item(name, description) {
+			int damage, double hitRate) : Item(name, description) 
+	{
 
 			this->damage = damage;
 			this->hitRate = hitRate; 

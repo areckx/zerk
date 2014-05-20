@@ -19,11 +19,13 @@
 // 	* a name to identify it 
 // 	* a description of what it looks like or does
 // 	* possibly add weight(TODO)
-class Item {
+class Item 
+{
 
 	public:
 
-		Item() {
+		Item() 
+		{
 
 		}
 
@@ -32,7 +34,8 @@ class Item {
 		std::string description;
 
 		// Standard constructor, nothing special
-		Item(std::string name, std::string description) {
+		Item(std::string name, std::string description) 
+		{
 			this->name = name;
 			this->description = description;
 

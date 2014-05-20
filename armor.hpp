@@ -10,7 +10,8 @@
 #include <string>
 
 // Armor should also inherit Item properties
-class Armor : public Item {
+class Armor : public Item 
+{
 
 	public:
 		// Armor can go into one of three slots1, and only one piece of
@@ -27,14 +28,16 @@ class Armor : public Item {
 		// Usual constructor
 		Armor(std::string name, std::string description, int defense,
 				Armor::Slot slot) : 
-				Item(name, description) {
+				Item(name, description) 
+	{
 
 			this->defense = defense;
 			this->slot = slot;
 
 		}
 
-		Armor() {
+		Armor() 
+		{
 
 		}
 		
