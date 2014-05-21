@@ -30,11 +30,6 @@ class Creature
 
 	public: 
 
-
-
-
-
-
 		// Items that the creature posesses
 		Inventory inventory;
 
@@ -87,9 +82,6 @@ class Creature
 				std::string className = "") 
 		{
 
-		// We also need to make sure that the creature is not equipped with
-		// anything when they are first created 
-
 			this->name = name;
 			this->hp = hp;
 			this->str = str;
@@ -97,6 +89,8 @@ class Creature
 			this->dex = dex;
 			this->hitRate = hitRate;
 			this->className = className;
+			// We also need to make sure that the creature is not equipped with
+			// anything when they are first created 
 			this->equippedArmor[Armor::Slot::HEAD] = nullptr;
 			this->equippedArmor[Armor::Slot::TORSO] = nullptr;
 			this->equippedArmor[Armor::Slot::LEGS] = nullptr;
